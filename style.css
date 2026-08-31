@@ -1,5 +1,5 @@
 /* ============================================================
-   Gammy's Pressure Washing — style.css
+   Gammy's Pressure Washing - style.css
    Edit variables in :root to retheme the whole site instantly
    ============================================================ */
 
@@ -381,7 +381,7 @@ ul { list-style: none; }
 }
 
 /* ============================================================
-   PHOTO GALLERY — "Our Work"
+   PHOTO GALLERY - "Our Work"
    ============================================================ */
 .gallery {
   padding: 6rem 0;
@@ -900,7 +900,7 @@ ul { list-style: none; }
    RESPONSIVE BREAKPOINTS
    ============================================================ */
 
-/* Tablet — ≤900px */
+/* Tablet - ≤900px */
 @media (max-width: 900px) {
   .nav-links,
   .nav-cta { display: none; }
@@ -920,7 +920,7 @@ ul { list-style: none; }
   .footer-brand { grid-column: 1 / -1; }
 }
 
-/* Mobile — ≤600px */
+/* Mobile - ≤600px */
 @media (max-width: 600px) {
   .hero { min-height: 100svh; padding: 5rem 0 4rem; }
 

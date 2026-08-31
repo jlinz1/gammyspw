@@ -1,5 +1,5 @@
 /* ============================================================
-   Gammy's Pressure Washing — script.js
+   Gammy's Pressure Washing - script.js
    ============================================================ */
 
 /* --- Nav: shadow on scroll --- */
@@ -66,7 +66,7 @@ if (revealEls.length) {
   revealEls.forEach(el => revealObserver.observe(el));
 }
 
-/* --- "Find Your Solution" cards — scroll to relevant service --- */
+/* --- "Find Your Solution" cards - scroll to relevant service --- */
 // Map each solution card data-target to a service card index (0-based in the grid)
 // Order matches the HTML: 0=Driveways, 1=Pathways/Floors, 2=Walls, 3=Awnings, 4=Moss, 5=Pool
 const solutionMap = {
@@ -169,21 +169,49 @@ document.querySelectorAll('.quote-form').forEach(form => {
   form.addEventListener('submit', e => {
     e.preventDefault();
 
-    if (validateForm(form)) {
-      // Show success message
-      const successEl = form.querySelector('.form-success');
-      if (successEl) {
-        successEl.classList.add('visible');
-        // Scroll success msg into view on mobile
-        successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
+    if (!validateForm(form)) return;
 
-      // Reset form after a short delay
-      setTimeout(() => {
-        form.reset();
-        if (successEl) successEl.classList.remove('visible');
-      }, 5000);
+    const successEl = form.querySelector('.form-success');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.textContent : '';
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
     }
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(response => {
+        if (response.ok) {
+          // Show success message
+          if (successEl) {
+            successEl.classList.add('visible');
+            // Scroll success msg into view on mobile
+            successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+
+          // Reset form after a short delay
+          setTimeout(() => {
+            form.reset();
+            if (successEl) successEl.classList.remove('visible');
+          }, 5000);
+        } else {
+          alert("Sorry, something went wrong sending your request. Please call us instead.");
+        }
+      })
+      .catch(() => {
+        alert("Sorry, something went wrong sending your request. Please call us instead.");
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      });
   });
 });
 
