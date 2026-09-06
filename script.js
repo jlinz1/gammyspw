@@ -107,8 +107,8 @@ solutionCards.forEach(card => {
       serviceCards.forEach(c => c.style.boxShadow = '');
 
       setTimeout(() => {
-        serviceCards[idx].style.outline = '3px solid #2A7D4F';
-        serviceCards[idx].style.boxShadow = '0 0 0 6px rgba(42,125,79,.15)';
+        serviceCards[idx].style.outline = '3px solid #1E56E3';
+        serviceCards[idx].style.boxShadow = '0 0 0 6px rgba(30,86,227,.15)';
         serviceCards[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
 
         // Remove highlight after 2.5 s
@@ -120,6 +120,11 @@ solutionCards.forEach(card => {
     }
   });
 });
+
+/* --- Google Sheet submission ---
+   Paste your Apps Script Web App URL below (see setup instructions).
+   Every quote request is sent here and appended as a row in the sheet. */
+const SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxP4RB1z7-kKwdYBSifdg62TdxFel78SAdCJvhY3fODRaAKEkdZgnKHlU644yvbo7Pj/exec';
 
 /* --- Form Validation --- */
 function validateForm(formEl) {
@@ -180,10 +185,18 @@ document.querySelectorAll('.quote-form').forEach(form => {
       submitBtn.textContent = 'Sending…';
     }
 
-    fetch(form.action, {
+    if (!SHEET_WEBHOOK_URL) {
+      alert("The form isn't connected yet. Please call us instead.");
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+      return;
+    }
+
+    fetch(SHEET_WEBHOOK_URL, {
       method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
+      body: new FormData(form)
     })
       .then(response => {
         if (response.ok) {

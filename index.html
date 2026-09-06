@@ -23,14 +23,13 @@
 
       <!-- Logo -->
       <a href="index.html" class="nav-logo" aria-label="Gammy's Pressure Washing home">
-        <!-- Water droplet SVG icon -->
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M12 2C12 2 5 10.5 5 15a7 7 0 0 0 14 0C19 10.5 12 2 12 2Z"
-                fill="#2A7D4F" opacity=".9"/>
-          <path d="M9 16a3.5 3.5 0 0 0 3.5 3" stroke="white" stroke-width="1.4"
-                stroke-linecap="round"/>
-        </svg>
-        Gammy's Pressure Washing
+        <span class="logo-badge" aria-hidden="true">
+          <img src="img/logo.jpg" alt="" />
+        </span>
+        <span class="logo-text">
+          <span class="logo-name">Gammy's</span>
+          <span class="logo-tagline">Pressure Washing</span>
+        </span>
       </a>
 
       <!-- Desktop nav links -->
@@ -355,29 +354,62 @@
         Real jobs, real results, every photo is from an actual Gammy's job across Sydney.
       </p>
 
-      <!--
-        PHOTO FILENAMES - save your photos into the img/ folder with these names:
-          img/gallery-1.jpg  → dramatic stone wall washing (large left tile, spans 2 rows)
-          img/gallery-2.jpg  → brick column close-up wash
-          img/gallery-3.jpg  → stadium / commercial seating area
-          img/gallery-4.jpg  → second stone wall / alternate angle
-          img/gallery-5.jpg  → any remaining action shot
-      -->
-      <div class="gallery-grid">
-        <div class="gallery-item reveal">
-          <img src="img/gallery-1.jpg" alt="Stone wall pressure washing, dramatic water cascade" loading="lazy" />
+      <!-- Before & After showcase -->
+      <div class="before-after-grid">
+        <div class="before-after-card reveal">
+          <div class="ba-images">
+            <div class="ba-img">
+              <img src="img/gallery-before-balcony.jpg" alt="Mould-stained apartment balconies before pressure washing" loading="lazy" />
+              <span class="ba-tag ba-tag-before">Before</span>
+            </div>
+            <div class="ba-img">
+              <img src="img/gallery-after-balcony.jpg" alt="Same apartment balconies restored to clean cream render after pressure washing" loading="lazy" />
+              <span class="ba-tag ba-tag-after">After</span>
+            </div>
+          </div>
+          <p class="ba-caption">Balcony &amp; render mould removal, Sydney apartment block</p>
         </div>
-        <div class="gallery-item reveal">
-          <img src="img/gallery-2.jpg" alt="Brick column pressure washing" loading="lazy" />
+
+        <div class="before-after-card reveal">
+          <div class="ba-images">
+            <div class="ba-img">
+              <img src="img/gallery-before-stairs.jpg" alt="Mossy, leaf-covered concrete stairwell before cleaning" loading="lazy" />
+              <span class="ba-tag ba-tag-before">Before</span>
+            </div>
+            <div class="ba-img">
+              <img src="img/gallery-after-stairs.jpg" alt="Clean concrete stairwell after pressure washing" loading="lazy" />
+              <span class="ba-tag ba-tag-after">After</span>
+            </div>
+          </div>
+          <p class="ba-caption">Common-area stairwell moss &amp; algae removal</p>
         </div>
-        <div class="gallery-item reveal">
-          <img src="img/gallery-3.jpg" alt="Commercial stadium seating pressure wash" loading="lazy" />
+
+        <div class="before-after-card reveal">
+          <div class="ba-images">
+            <div class="ba-img">
+              <img src="img/gallery-action-wall.jpg" alt="Gammy's team member pressure washing a heavily mould-stained garage wall and door" loading="lazy" />
+              <span class="ba-tag ba-tag-before">Before</span>
+            </div>
+            <div class="ba-img">
+              <img src="img/gallery-before-wall.jpg" alt="Same garage wall restored after pressure washing" loading="lazy" />
+              <span class="ba-tag ba-tag-after">After</span>
+            </div>
+          </div>
+          <p class="ba-caption">Garage wall &amp; door mould removal</p>
         </div>
-        <div class="gallery-item reveal">
-          <img src="img/gallery-4.jpg" alt="Exterior wall cleaning" loading="lazy" />
-        </div>
-        <div class="gallery-item reveal">
-          <img src="img/gallery-5.jpg" alt="Pressure washing in action" loading="lazy" />
+
+        <div class="before-after-card reveal">
+          <div class="ba-images">
+            <div class="ba-img">
+              <img src="img/gallery-before-driveway.jpg" alt="Moss-covered paved driveway ramp before pressure washing" loading="lazy" />
+              <span class="ba-tag ba-tag-before">Before</span>
+            </div>
+            <div class="ba-img">
+              <img src="img/gallery-after-driveway.jpg" alt="Same driveway ramp restored to clean pavers after pressure washing" loading="lazy" />
+              <span class="ba-tag ba-tag-after">After</span>
+            </div>
+          </div>
+          <p class="ba-caption">Driveway ramp moss &amp; algae removal</p>
         </div>
       </div>
 
@@ -494,13 +526,8 @@
 
         <!-- Right: form -->
         <div class="reveal">
-          <form class="quote-form" novalidate aria-label="Free quote request form" action="https://formspree.io/f/xbgjdgqy" method="POST">
-            <input type="hidden" name="_subject" value="New quote request - Gammy's Pressure Washing (Homepage)" />
-            <input type="hidden" name="_autoresponse" value="Hi, thanks for reaching out to Gammy's Pressure Washing! We've received your quote request and will get back to you within a few hours with a free, no-obligation quote. If it's urgent, feel free to call or text us on 0468 483 086.
-
-Thanks,
-Gammy's Pressure Washing" />
-            <input type="text" name="_gotcha" style="display:none !important" tabindex="-1" autocomplete="off" />
+          <form class="quote-form" novalidate aria-label="Free quote request form">
+            <input type="hidden" name="page" value="Homepage" />
 
             <div class="form-row">
               <!-- Name -->
@@ -576,13 +603,13 @@ Gammy's Pressure Washing" />
         <!-- Brand -->
         <div class="footer-brand">
           <a href="index.html" class="nav-logo">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 2C12 2 5 10.5 5 15a7 7 0 0 0 14 0C19 10.5 12 2 12 2Z"
-                    fill="#2A7D4F" opacity=".9"/>
-              <path d="M9 16a3.5 3.5 0 0 0 3.5 3" stroke="white" stroke-width="1.4"
-                    stroke-linecap="round"/>
-            </svg>
-            Gammy's Pressure Washing
+            <span class="logo-badge" aria-hidden="true">
+              <img src="img/logo.jpg" alt="" />
+            </span>
+            <span class="logo-text">
+              <span class="logo-name">Gammy's</span>
+              <span class="logo-tagline">Pressure Washing</span>
+            </span>
           </a>
           <p class="footer-tagline">
             Sydney's trusted pressure washing specialists. Family-run,
