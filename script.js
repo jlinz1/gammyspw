@@ -2,6 +2,61 @@
    Gammy's Pressure Washing - script.js
    ============================================================ */
 
+/* --- Google Reviews (Places API) ---
+   Fill in your API key and Place ID below (see setup instructions).
+   Leave either blank to keep the static placeholder reviews in index.html. */
+const GOOGLE_PLACES_API_KEY = '';
+const GOOGLE_PLACE_ID = '';
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+window.renderGoogleReviews = function () {
+  const grid = document.querySelector('.reviews-grid');
+  if (!grid || !window.google || !google.maps || !google.maps.places) return;
+
+  const service = new google.maps.places.PlacesService(document.createElement('div'));
+  service.getDetails(
+    { placeId: GOOGLE_PLACE_ID, fields: ['reviews'] },
+    (place, status) => {
+      if (status !== google.maps.places.PlacesServiceStatus.OK || !place.reviews || !place.reviews.length) {
+        return; // Something went wrong - keep the static fallback reviews already in the HTML
+      }
+
+      grid.innerHTML = '';
+      place.reviews.slice(0, 5).forEach(review => {
+        const stars = '⭐'.repeat(Math.round(review.rating));
+        const initials = review.author_name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase();
+
+        const card = document.createElement('div');
+        card.className = 'review-card reveal revealed';
+        card.innerHTML = `
+          <div class="review-stars" aria-label="${review.rating} out of 5 stars">${stars}</div>
+          <p class="review-text">"${escapeHtml(review.text)}"</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar" aria-hidden="true">${escapeHtml(initials)}</div>
+            <div>
+              <div class="reviewer-name">${escapeHtml(review.author_name)}</div>
+              <div class="reviewer-loc">${escapeHtml(review.relative_time_description)}</div>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+  );
+};
+
+if (GOOGLE_PLACES_API_KEY && GOOGLE_PLACE_ID) {
+  const mapsScript = document.createElement('script');
+  mapsScript.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_PLACES_API_KEY}&libraries=places&callback=renderGoogleReviews&loading=async`;
+  mapsScript.async = true;
+  document.head.appendChild(mapsScript);
+}
+
 /* --- Nav: shadow on scroll --- */
 const nav = document.querySelector('.nav');
 if (nav) {
