@@ -546,7 +546,7 @@ ul { list-style: none; }
    WHY CHOOSE US
    ============================================================ */
 .why {
-  padding: 6rem 0;
+  padding: 6rem 0 4rem;
   background: var(--white);
 }
 
@@ -554,7 +554,6 @@ ul { list-style: none; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  margin-bottom: 3rem;
 }
 
 .stat-card {
