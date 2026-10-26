@@ -66,6 +66,59 @@ if (revealEls.length) {
   revealEls.forEach(el => revealObserver.observe(el));
 }
 
+/* --- Before & After carousel --- */
+const baCarousel = document.querySelector('.ba-carousel');
+if (baCarousel) {
+  const track  = baCarousel.querySelector('.ba-track');
+  const slides = baCarousel.querySelectorAll('.ba-slide');
+  const dotsEl = baCarousel.querySelector('.ba-dots');
+  let current = 0;
+
+  // Build one dot per slide
+  const dots = Array.from(slides, (_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'ba-dot';
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', `Show job ${i + 1} of ${slides.length}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+    return dot;
+  });
+
+  function goTo(i) {
+    // Wrap around at either end
+    current = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    slides.forEach((s, j) => s.setAttribute('aria-hidden', j !== current));
+    dots.forEach((d, j) => {
+      d.classList.toggle('active', j === current);
+      d.setAttribute('aria-selected', j === current);
+    });
+  }
+
+  baCarousel.querySelector('.ba-prev').addEventListener('click', () => goTo(current - 1));
+  baCarousel.querySelector('.ba-next').addEventListener('click', () => goTo(current + 1));
+
+  // Keyboard arrows when the carousel has focus
+  baCarousel.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+
+  // Swipe on touch screens
+  let touchStartX = null;
+  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    if (touchStartX === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 40) goTo(current + (dx < 0 ? 1 : -1));
+    touchStartX = null;
+  });
+
+  goTo(0);
+}
+
 /* --- "Find Your Solution" cards - scroll to relevant service --- */
 // Map each solution card data-target to a service card index (0-based in the grid)
 // Order matches the HTML: 0=Driveways, 1=Pathways/Floors, 2=Walls, 3=Awnings, 4=Moss, 5=Pool

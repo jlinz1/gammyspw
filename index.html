@@ -67,6 +67,12 @@
        HERO
        ============================================================ -->
   <section class="hero" id="hero" aria-labelledby="hero-heading">
+    <!-- Background video: Gammy's whirlaway job (silent, loops) -->
+    <video class="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="img/hero-poster.jpg" aria-hidden="true">
+      <source src="img/hero-video.mp4" type="video/mp4" />
+    </video>
+
     <div class="container">
       <div class="hero-content">
 
@@ -101,7 +107,7 @@
               <path d="M3 2h2.5l1 3L5 6.5c1 2 2.5 3.5 4.5 4.5L11 9.5l3 1V13a1 1 0 0 1-1 1C5.5 14 2 8.5 2 3a1 1 0 0 1 1-1Z"
                     stroke="white" stroke-width="1.4" stroke-linejoin="round"/>
             </svg>
-            Call Us Now
+            Call Us Now: 0468 483 086
           </a>
         </div>
 
@@ -111,7 +117,165 @@
           <div class="trust-badge">✅ Same-Week Availability</div>
         </div>
 
+        <!-- Google rating (live image from Revue, updates automatically) -->
+        <a href="#reviews" class="google-rating">
+          <img src="https://w.revue.us/v1/widgets/posts/52452/rating.png"
+               srcset="https://w.revue.us/v1/widgets/posts/52452/rating2x.png 2x"
+               alt="Our Google rating" width="120" height="67" />
+        </a>
+
+
       </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       PHOTO GALLERY - Our Work
+       ============================================================ -->
+  <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
+    <div class="container">
+
+      <p class="section-label reveal">Our Work</p>
+      <h2 class="section-title reveal" id="gallery-heading">See the Results</h2>
+      <p class="section-sub reveal">
+        Real jobs, real results, every photo is from an actual Gammy's job across Sydney.
+      </p>
+
+      <!-- Before & After carousel -->
+      <div class="ba-carousel reveal" aria-roledescription="carousel" aria-label="Before and after photos">
+        <div class="ba-viewport">
+          <div class="ba-track">
+            <div class="before-after-card ba-slide">
+              <div class="ba-images">
+                <div class="ba-img">
+                  <img src="img/gallery-before-balcony.jpg" alt="Mould-stained apartment balconies before pressure washing" loading="lazy" />
+                  <span class="ba-tag ba-tag-before">Before</span>
+                </div>
+                <div class="ba-img">
+                  <img src="img/gallery-after-balcony.jpg" alt="Same apartment balconies restored to clean cream render after pressure washing" loading="lazy" />
+                  <span class="ba-tag ba-tag-after">After</span>
+                </div>
+              </div>
+              <p class="ba-caption">Balcony &amp; render mould removal, Sydney apartment block</p>
+            </div>
+
+            <div class="before-after-card ba-slide">
+              <div class="ba-images">
+                <div class="ba-img">
+                  <img src="img/gallery-before-stairs.jpg" alt="Mossy, leaf-covered concrete stairwell before cleaning" loading="lazy" />
+                  <span class="ba-tag ba-tag-before">Before</span>
+                </div>
+                <div class="ba-img">
+                  <img src="img/gallery-after-stairs.jpg" alt="Clean concrete stairwell after pressure washing" loading="lazy" />
+                  <span class="ba-tag ba-tag-after">After</span>
+                </div>
+              </div>
+              <p class="ba-caption">Common-area stairwell moss &amp; algae removal</p>
+            </div>
+
+            <div class="before-after-card ba-slide">
+              <div class="ba-images">
+                <div class="ba-img">
+                  <img src="img/gallery-action-wall.jpg" alt="Gammy's team member pressure washing a heavily mould-stained garage wall and door" loading="lazy" />
+                  <span class="ba-tag ba-tag-before">Before</span>
+                </div>
+                <div class="ba-img">
+                  <img src="img/gallery-before-wall.jpg" alt="Same garage wall restored after pressure washing" loading="lazy" />
+                  <span class="ba-tag ba-tag-after">After</span>
+                </div>
+              </div>
+              <p class="ba-caption">Garage wall &amp; door mould removal</p>
+            </div>
+
+            <div class="before-after-card ba-slide">
+              <div class="ba-images">
+                <div class="ba-img">
+                  <img src="img/gallery-before-stone-stairs.jpg" alt="Grimy stone staircase with pressure washer hoses before cleaning" loading="lazy" />
+                  <span class="ba-tag ba-tag-before">Before</span>
+                </div>
+                <div class="ba-img">
+                  <img src="img/gallery-after-stone-stairs.jpg" alt="Same stone staircase clean and bright after pressure washing" loading="lazy" />
+                  <span class="ba-tag ba-tag-after">After</span>
+                </div>
+              </div>
+              <p class="ba-caption">Outdoor stone staircase clean</p>
+            </div>
+
+            <div class="before-after-card ba-slide">
+              <div class="ba-images">
+                <div class="ba-img">
+                  <img src="img/gallery-before-carpark.jpg" alt="Apartment garage ramp and driveway before pressure washing" loading="lazy" />
+                  <span class="ba-tag ba-tag-before">Before</span>
+                </div>
+                <div class="ba-img">
+                  <img src="img/gallery-after-carpark.jpg" alt="Same garage ramp and driveway freshly cleaned after pressure washing" loading="lazy" />
+                  <span class="ba-tag ba-tag-after">After</span>
+                </div>
+              </div>
+              <p class="ba-caption">Garage ramp &amp; driveway clean, Sydney apartment complex</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="ba-arrow ba-prev" type="button" aria-label="Previous photo">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="ba-arrow ba-next" type="button" aria-label="Next photo">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7.5 4l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="ba-dots" role="tablist" aria-label="Choose a photo"></div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       REVIEWS
+       ============================================================ -->
+  <section class="reviews" id="reviews" aria-label="Customer reviews">
+    <div class="container">
+
+      <div class="elfsight-app-7b0008ef-0100-4198-9709-94e4884e7364" data-elfsight-app-lazy></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       WHY CHOOSE US
+       ============================================================ -->
+  <section class="why" id="why" aria-labelledby="why-heading">
+    <div class="container">
+
+      <p class="section-label reveal">Our Difference</p>
+      <h2 class="section-title reveal" id="why-heading">Why Gammy's?</h2>
+
+      <!-- Stats row -->
+      <div class="stats-grid">
+        <div class="stat-card reveal">
+          <div class="stat-icon" aria-hidden="true">🏆</div>
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon" aria-hidden="true">😊</div>
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Happy Customers</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon" aria-hidden="true">🌱</div>
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Professional Equipment</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon" aria-hidden="true">✅</div>
+          <div class="stat-number">⭐⭐⭐⭐⭐</div>
+          <div class="stat-label">Satisfaction Guaranteed</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -205,143 +369,6 @@
         </div>
 
       </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       REVIEWS
-       ============================================================ -->
-  <section class="reviews" id="reviews" aria-label="Customer reviews">
-    <div class="container">
-
-      <div class="elfsight-app-7b0008ef-0100-4198-9709-94e4884e7364" data-elfsight-app-lazy></div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       WHY CHOOSE US
-       ============================================================ -->
-  <section class="why" id="why" aria-labelledby="why-heading">
-    <div class="container">
-
-      <p class="section-label reveal">Our Difference</p>
-      <h2 class="section-title reveal" id="why-heading">Why Gammy's?</h2>
-
-      <!-- Stats row -->
-      <div class="stats-grid">
-        <div class="stat-card reveal">
-          <div class="stat-icon" aria-hidden="true">🏆</div>
-          <div class="stat-number">3+</div>
-          <div class="stat-label">Years Experience</div>
-        </div>
-        <div class="stat-card reveal">
-          <div class="stat-icon" aria-hidden="true">😊</div>
-          <div class="stat-number">50+</div>
-          <div class="stat-label">Happy Customers</div>
-        </div>
-        <div class="stat-card reveal">
-          <div class="stat-icon" aria-hidden="true">🌱</div>
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Professional Equipment</div>
-        </div>
-        <div class="stat-card reveal">
-          <div class="stat-icon" aria-hidden="true">✅</div>
-          <div class="stat-number">⭐⭐⭐⭐⭐</div>
-          <div class="stat-label">Satisfaction Guaranteed</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       PHOTO GALLERY - Our Work
-       ============================================================ -->
-  <section class="gallery" id="gallery" aria-labelledby="gallery-heading">
-    <div class="container">
-
-      <p class="section-label reveal">Our Work</p>
-      <h2 class="section-title reveal" id="gallery-heading">See the Results</h2>
-      <p class="section-sub reveal">
-        Real jobs, real results, every photo is from an actual Gammy's job across Sydney.
-      </p>
-
-      <!-- Before & After showcase -->
-      <div class="before-after-grid">
-        <div class="before-after-card reveal">
-          <div class="ba-images">
-            <div class="ba-img">
-              <img src="img/gallery-before-balcony.jpg" alt="Mould-stained apartment balconies before pressure washing" loading="lazy" />
-              <span class="ba-tag ba-tag-before">Before</span>
-            </div>
-            <div class="ba-img">
-              <img src="img/gallery-after-balcony.jpg" alt="Same apartment balconies restored to clean cream render after pressure washing" loading="lazy" />
-              <span class="ba-tag ba-tag-after">After</span>
-            </div>
-          </div>
-          <p class="ba-caption">Balcony &amp; render mould removal, Sydney apartment block</p>
-        </div>
-
-        <div class="before-after-card reveal">
-          <div class="ba-images">
-            <div class="ba-img">
-              <img src="img/gallery-before-stairs.jpg" alt="Mossy, leaf-covered concrete stairwell before cleaning" loading="lazy" />
-              <span class="ba-tag ba-tag-before">Before</span>
-            </div>
-            <div class="ba-img">
-              <img src="img/gallery-after-stairs.jpg" alt="Clean concrete stairwell after pressure washing" loading="lazy" />
-              <span class="ba-tag ba-tag-after">After</span>
-            </div>
-          </div>
-          <p class="ba-caption">Common-area stairwell moss &amp; algae removal</p>
-        </div>
-
-        <div class="before-after-card reveal">
-          <div class="ba-images">
-            <div class="ba-img">
-              <img src="img/gallery-action-wall.jpg" alt="Gammy's team member pressure washing a heavily mould-stained garage wall and door" loading="lazy" />
-              <span class="ba-tag ba-tag-before">Before</span>
-            </div>
-            <div class="ba-img">
-              <img src="img/gallery-before-wall.jpg" alt="Same garage wall restored after pressure washing" loading="lazy" />
-              <span class="ba-tag ba-tag-after">After</span>
-            </div>
-          </div>
-          <p class="ba-caption">Garage wall &amp; door mould removal</p>
-        </div>
-
-        <div class="before-after-card reveal">
-          <div class="ba-images">
-            <div class="ba-img">
-              <img src="img/gallery-before-driveway.jpg" alt="Moss-covered paved driveway ramp before pressure washing" loading="lazy" />
-              <span class="ba-tag ba-tag-before">Before</span>
-            </div>
-            <div class="ba-img">
-              <img src="img/gallery-after-driveway.jpg" alt="Same driveway ramp restored to clean pavers after pressure washing" loading="lazy" />
-              <span class="ba-tag ba-tag-after">After</span>
-            </div>
-          </div>
-          <p class="ba-caption">Driveway ramp moss &amp; algae removal</p>
-        </div>
-
-        <div class="before-after-card reveal">
-          <div class="ba-images">
-            <div class="ba-img">
-              <img src="img/gallery-before-carpark.jpg" alt="Apartment garage ramp and driveway before pressure washing" loading="lazy" />
-              <span class="ba-tag ba-tag-before">Before</span>
-            </div>
-            <div class="ba-img">
-              <img src="img/gallery-after-carpark.jpg" alt="Same garage ramp and driveway freshly cleaned after pressure washing" loading="lazy" />
-              <span class="ba-tag ba-tag-after">After</span>
-            </div>
-          </div>
-          <p class="ba-caption">Garage ramp &amp; driveway clean, Sydney apartment complex</p>
-        </div>
-      </div>
-
     </div>
   </section>
 
